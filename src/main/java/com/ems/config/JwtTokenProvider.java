@@ -44,7 +44,7 @@ public class JwtTokenProvider {
         try {
             // Updated code for JWT parsing using the new API
             return Jwts.parserBuilder()
-                    .setSigningKey(jwtProperties.getSecret())
+                    .setSigningKey(jwtProperties.getSecret())   // Set the secret key for parsing
                     .build()
                     .parseClaimsJws(token)
                     .getBody()
@@ -59,7 +59,7 @@ public class JwtTokenProvider {
         try {
             // Updated code for JWT validation using the new API
             Jwts.parserBuilder()
-                    .setSigningKey(jwtProperties.getSecret())
+                    .setSigningKey(jwtProperties.getSecret()) // Set the secret key for parsing
                     .build()
                     .parseClaimsJws(token);
             return true;
